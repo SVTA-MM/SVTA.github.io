@@ -430,7 +430,7 @@
         leverage LLMs and video generative models to create a large-scale
         cross-modal video anomaly retrieval benchmark. We
         provide an overview of our Synthetic Video-Text Anomaly (SVTA)
-        benchmark construction.First, we collect and generate diverse
+        benchmark construction. First, we collect and generate diverse
         video descriptions via LLM. Second, we leverage a state-of-the-art open-source video generative model to craft high-quality
         videos. Third, we adopt LLM to assign preliminary attributes for samples lacking explicit normal/anomaly labels and refine all
         labels by K-Means clustering and manual verification. The final dataset integrates 41,315 rigorously curated video-text pairs.
@@ -679,6 +679,242 @@
         still challenging to prevailing cross-modality models. 
     </p>
     <img class="summary-img" src="./files/retrival_00.png" style="width:90%;"> <br>
+    <p> This table presents the results of Zero-shot multimodal text-to-video (T2V) and video-to-text (V2T) retrieval on UCFCrime-AR, 
+        in terms of Recall Rate (R@1, R@5, R@10), Median Rank (MdR), and Mean Rank (MnR).
+    </p>
+    <table class="comparison-table">
+        <thead>
+          <tr>
+            <th rowspan="2">Method</th>
+            <th colspan="5" class="t2v-group no-border-right">T2V</th>
+            <th colspan="5" class="v2t-group no-border-left">V2T</th>
+          </tr>
+          <tr class="sub-header">
+            <th class="t2v-group"><span>R@1↑</span></th>
+            <th class="t2v-group"><span>R@5↑</span></th>
+            <th class="t2v-group"><span>R@10↑</span></th>
+            <th class="t2v-group"><span>MdR↓</span></th>
+            <th class="t2v-group"><span>MnR↓</span></th>
+
+            <th class="v2t-group"><span>R@1↑</span></th>
+            <th class="v2t-group"><span>R@5↑</span></th>
+            <th class="v2t-group"><span>R@10↑</span></th>
+            <th class="v2t-group"><span>MdR↓</span></th>
+            <th class="v2t-group"><span>MnR↓</span></th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>CLIP4Clip-MeanP</td>
+                <td>23.6</td>
+                <td>50.0</td>
+                <td>63.0</td>
+                <td>5.5</td>
+                <td>15.7</td>
+                <td>16.7</td>
+                <td>39.5</td>
+                <td>54.1</td>
+                <td>9.0</td>
+                <td>22.6</td>
+            </tr>
+            <tr>
+                <td>CLIP4Clip-seqLSTM</td>
+                <td>22.9</td>
+                <td>49.0</td>
+                <td>64.4</td>
+                <td>6.0</td>
+                <td>16.0</td>
+                <td>18.4</td>
+                <td>36.1</td>
+                <td>52.4</td>
+                <td>10.0</td>
+                <td>23.5</td>
+            </tr>
+            <tr>
+                <td>CLIP4Clip-seqTransf</td>
+                <td>24.0</td>
+                <td>47.6</td>
+                <td>64.0</td>
+                <td>6.0</td>
+                <td>16.1</td>
+                <td>17.7</td>
+                <td>36.4</td>
+                <td>51.0</td>
+                <td>10.0</td>
+                <td>22.4</td>
+            </tr>
+            <tr>
+                <td>CLIP4Clip-tightTransf</td>
+                <td>16.8</td>
+                <td>41.4</td>
+                <td>53.4</td>
+                <td>8.0</td>
+                <td>32.9</td>
+                <td>14.3</td>
+                <td>34.0</td>
+                <td>49.0</td>
+                <td>12.0</td>
+                <td>39.4</td>
+            </tr>
+            <tr>
+                <td>X-CLIP (ViT-B/32)</td>
+                <td>24.0</td>
+                <td>49.7</td>
+                <td>63.4</td>
+                <td>6.0</td>
+                <td>16.4</td>
+                <td>17.7</td>
+                <td>36.4</td>
+                <td>52.7</td>
+                <td>9.0</td>
+                <td>22.7</td>
+            </tr>
+            <tr>
+                <td>X-CLIP (ViT-B/16)</td>
+                <td>27.4</td>
+                <td>53.1</td>
+                <td>67.8</td>
+                <td>5.0</td>
+                <td>14.0</td>
+                <td>20.4</td>
+                <td>44.6</td>
+                <td>59.5</td>
+                <td>7.0</td>
+                <td>19.6</td>
+            </tr>
+            <tr>
+                <td>GRAM</td>
+                <td>34.5</td>
+                <td>60.7</td>
+                <td>70.7</td>
+                <td>3.0</td>
+                <td>17.8</td>
+                <td>32.4</td>
+                <td>57.2</td>
+                <td>68.6</td>
+                <td>4.0</td>
+                <td>26.3</td>
+            </tr>
+        </tbody>
+    </table>
+    <p> This table presents the results of Zero-shot multimodal text-to-video (T2V) and video-to-text (V2T) retrieval on OOPS!, 
+        in terms of Recall Rate (R@1, R@5, R@10), Median Rank (MdR), and Mean Rank (MnR).
+    </p>
+    <table class="comparison-table">
+        <thead>
+          <tr>
+            <th rowspan="2">Method</th>
+            <th colspan="5" class="t2v-group no-border-right">T2V</th>
+            <th colspan="5" class="v2t-group no-border-left">V2T</th>
+          </tr>
+          <tr class="sub-header">
+            <th class="t2v-group"><span>R@1↑</span></th>
+            <th class="t2v-group"><span>R@5↑</span></th>
+            <th class="t2v-group"><span>R@10↑</span></th>
+            <th class="t2v-group"><span>MdR↓</span></th>
+            <th class="t2v-group"><span>MnR↓</span></th>
+
+            <th class="v2t-group"><span>R@1↑</span></th>
+            <th class="v2t-group"><span>R@5↑</span></th>
+            <th class="v2t-group"><span>R@10↑</span></th>
+            <th class="v2t-group"><span>MdR↓</span></th>
+            <th class="v2t-group"><span>MnR↓</span></th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>CLIP4Clip-MeanP</td>
+                <td>16.1</td>
+                <td>35.9</td>
+                <td>45.6</td>
+                <td>14.0</td>
+                <td>112.4</td>
+                <td>14.0</td>
+                <td>31.2</td>
+                <td>40.6</td>
+                <td>19.0</td>
+                <td>127.6</td>
+            </tr>
+            <tr>
+                <td>CLIP4Clip-seqLSTM</td>
+                <td>15.5</td>
+                <td>35.5</td>
+                <td>45.2</td>
+                <td>14.0</td>
+                <td>114.0</td>
+                <td>12.8</td>
+                <td>30.5</td>
+                <td>39.5</td>
+                <td>20.0</td>
+                <td>129.5</td>
+            </tr>
+            <tr>
+                <td>CLIP4Clip-seqTransf</td>
+                <td>16.0</td>
+                <td>35.5</td>
+                <td>45.5</td>
+                <td>14.0</td>
+                <td>114.4</td>
+                <td>13.0</td>
+                <td>30.6</td>
+                <td>40.6</td>
+                <td>19.0</td>
+                <td>127.4</td>
+            </tr>
+            <tr>
+                <td>CLIP4Clip-tightTransf</td>
+                <td>11.8</td>
+                <td>27.7</td>
+                <td>36.8</td>
+                <td>24.0</td>
+                <td>219.3</td>
+                <td>9.5</td>
+                <td>24.9</td>
+                <td>33.3</td>
+                <td>29.0</td>
+                <td>230.8</td>
+            </tr>
+            <tr>
+                <td>X-CLIP (ViT-B/32)</td>
+                <td>15.7</td>
+                <td>35.6</td>
+                <td>46.9</td>
+                <td>13.0</td>
+                <td>108.0</td>
+                <td>14.1</td>
+                <td>32.8</td>
+                <td>41.8</td>
+                <td>17.0</td>
+                <td>110.9</td>
+            </tr>
+            <tr>
+                <td>X-CLIP (ViT-B/16)</td>
+                <td>18.9</td>
+                <td>41.8</td>
+                <td>52.2</td>
+                <td>9.0</td>
+                <td>84.4</td>
+                <td>16.5</td>
+                <td>36.8</td>
+                <td>47.0</td>
+                <td>12.0</td>
+                <td>91.9</td>
+            </tr>
+            <tr>
+                <td>GRAM</td>
+                <td>18.6</td>
+                <td>39.0</td>
+                <td>48.1</td>
+                <td>12.0</td>
+                <td>542.2</td>
+                <td>19.0</td>
+                <td>39.1</td>
+                <td>49.1</td>
+                <td>11.0</td>
+                <td>551.0</td>
+            </tr>
+        </tbody>
+    </table>
   </div>
 
   <div class="content" id="bibtex"> 

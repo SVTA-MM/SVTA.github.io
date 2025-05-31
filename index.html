@@ -38,6 +38,8 @@
       <p style="text-align: center;" class="serif">
         <a href="https://svta-mm.github.io/SVTA.github.io/" target="_blank"
           style="font-weight: bold;">[Paper]</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://www.kaggle.com/datasets/shuyuyang666/svta-synthetic-video-text-anomaly-benchmark" target="_blank"
+          style="font-weight: bold;">[Dataset]</a>&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="https://github.com/Shuyu-XJTU/SVTA" target="_blank"
           style="font-weight: bold;">[Github]</a>&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="https://svta-mm.github.io/SVTA.github.io/#bibtex" style="font-weight: bold;">[BibTeX]</a>
@@ -391,6 +393,7 @@
   </div>
   <div class="content">
     <h2 style="text-align:center;">Abstract</h2>
+    <img class="summary-img" src="./files/teaser - 1900-480_00.png" style="width:90%;"> <br>
     <p> Video anomaly retrieval aims to localize anomalous events in videos
         using natural language queries to facilitate public safety. However,
         existing datasets suffer from severe limitations: (1) data scarcity due
@@ -419,22 +422,266 @@
   <div class="content">
     <h2>Approach</h2>
     <img class="summary-img" src="./files/pipeline.png" style="width:90%;"> <br>
-    <p> Data scarcity stemming from the long - tail nature of real - world anomalies and privacy constraints 
-        impedes large - scale anomaly data collection from real - world scenarios. However, recent progress 
-        in Large Language Models (LLMs) and video foundation models allows for high - quality text and video generation. 
-        Motivated by this, we suggest using LLMs and video generative models to develop a large - scale cross - modal video anomaly retrieval benchmark.
-        As depicted in figure, which shows the pipeline of our Synthetic Video - Text Anomaly (SVTA) benchmark construction, 
-        our process unfolds in several steps. First, we gather and generate diverse video descriptions through LLMs. 
-        Second, we utilize a cutting - edge open - source video generative model to produce high - quality videos. 
-        Third, we employ LLMs to assign preliminary attributes to samples lacking explicit normal/anomaly labels, 
-        and refine all labels via K - Means clustering and manual verification. The final dataset consists of 41,315 meticulously curated video - text pairs.
+    <p> Data scarcity caused by the long-tail nature of real-world anomalies
+        and privacy constraints hinder large-scale anomaly data collection
+        from real-world scenarios. Fortunately, recent advances in Large
+        Language Models (LLMs) and video foundation models enable high-
+        quality text and video generation. Inspired by this, we propose to
+        leverage LLMs and video generative models to create a large-scale
+        cross-modal video anomaly retrieval benchmark. We
+        provide an overview of our Synthetic Video-Text Anomaly (SVTA)
+        benchmark construction.First, we collect and generate diverse
+        video descriptions via LLM. Second, we leverage a state-of-the-art open-source video generative model to craft high-quality
+        videos. Third, we adopt LLM to assign preliminary attributes for samples lacking explicit normal/anomaly labels and refine all
+        labels by K-Means clustering and manual verification. The final dataset integrates 41,315 rigorously curated video-text pairs.
 
     </p>
     <br>
 
   </div>
 
-  <div class="content" id="bibtex">
+  <div class="content">
+    <h2>Statistics</h2>
+    <p> Comparison of the proposed SVTA dataset and some of the other publicly available datasets for anomaly detection and
+        anomaly retrieval. Our dataset provides many more video samples, action classes (anomaly and normal), and background in
+        comparison with other available datasets for anomaly retrieval (Anno. means Annotation).
+    </p>
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Datasets</th>
+          <th>Modality</th>
+          <th>Annotation</th>
+          <th>Anno. Format</th>
+          <th>#Videos</th>
+          <th>#Texts</th>
+          <th>#Anomaly Types</th>
+          <th>Anomaly : Normal</th>
+          <th>Data source</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>UBnormal</td>
+          <td>Video</td>
+          <td>Frame-level Tag</td>
+          <td>Action Label</td>
+          <td>543</td>
+          <td>-</td>
+          <td>22 Anomaly</td>
+          <td>2:3</td>
+          <td>Synthesis</td>
+        </tr>
+        <tr>
+          <td>ShanghaiTech</td>
+          <td>Video</td>
+          <td>Frame-level Tag</td>
+          <td>Action Label</td>
+          <td>437</td>
+          <td>-</td>
+          <td>11 Anomaly</td>
+          <td>1:18</td>
+          <td>Collection</td>
+        </tr>
+        <tr>
+          <td>UCF-Crime</td>
+          <td>Video</td>
+          <td>Video-level Tag</td>
+          <td>Action Label</td>
+          <td>1,900</td>
+          <td>-</td>
+          <td>13 Anomaly</td>
+          <td>1:1</td>
+          <td>Collection</td>
+        </tr>
+        <tr>
+          <td>UCA</td>
+          <td>Video, Text</td>
+          <td>Video-level Text</td>
+          <td>Action Text</td>
+          <td>1,900</td>
+          <td>23,542</td>
+          <td>13 Anomaly</td>
+          <td>1:1</td>
+          <td>Collection</td>
+        </tr>
+        <tr>
+          <td>UCFCrime-AR</td>
+          <td>Video, Text</td>
+          <td>Video-level Text</td>
+          <td>Action Text</td>
+          <td>1,900</td>
+          <td>1,900</td>
+          <td>13 Anomaly</td>
+          <td>1:1</td>
+          <td>Collection</td>
+        </tr>
+        <tr>
+          <td>SVTA (Ours)</td>
+          <td>Video, Text</td>
+          <td>Video-level Text</td>
+          <td>Action Text</td>
+          <td>41,315</td>
+          <td>41,315</td>
+          <td>68 Anomaly</td>
+          <td>3:2</td>
+          <td>Synthesis</td>
+        </tr>
+      </tbody>
+    </table>
+    <p> An overview of the SVTA attribute annotations, including the distribution of (a) normal and anomaly
+        videos, (b) normal categories, and (c) anomaly categories.
+    </p>
+    <div class="charts-container">
+        <!-- Chart 1 -->
+        <div class="chart-wrapper">
+          <img class="chart-img" src="./files/statistics/PieChart0.png">
+          <p class="chart-caption">(a) Overall distribution of normal and anomaly videos</p>
+        </div>
+        
+        <!-- Chart 2 -->
+        <div class="chart-wrapper">
+          <img class="chart-img" src="./files/statistics/PieChart1.png">
+          <p class="chart-caption">(b) Distribution of normal types</p>
+        </div>
+        
+        <!-- Chart 3 -->
+        <div class="chart-wrapper">
+          <img class="chart-img" src="./files/statistics/PieChart2.png">
+          <p class="chart-caption">(c) Distribution of anomaly types</p>
+        </div>
+    </div>
+    <br>
+  </div>
+
+  <div class="content">
+    <h2>Results</h2>
+    <p> This table presents the results of multimodal text-to-video (T2V) and video-to-text (V2T) retrieval on SVTA, 
+        in terms of Recall Rate (R@1, R@5, R@10), Median Rank (MdR), and Mean Rank (MnR).
+    </p>
+    <table class="comparison-table">
+        <thead>
+          <tr>
+            <th rowspan="2">Method</th>
+            <th colspan="5" class="t2v-group no-border-right">T2V</th>
+            <th colspan="5" class="v2t-group no-border-left">V2T</th>
+          </tr>
+          <tr class="sub-header">
+            <th class="t2v-group"><span>R@1↑</span></th>
+            <th class="t2v-group"><span>R@5↑</span></th>
+            <th class="t2v-group"><span>R@10↑</span></th>
+            <th class="t2v-group"><span>MdR↓</span></th>
+            <th class="t2v-group"><span>MnR↓</span></th>
+
+            <th class="v2t-group"><span>R@1↑</span></th>
+            <th class="v2t-group"><span>R@5↑</span></th>
+            <th class="v2t-group"><span>R@10↑</span></th>
+            <th class="v2t-group"><span>MdR↓</span></th>
+            <th class="v2t-group"><span>MnR↓</span></th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>CLIP4Clip-MeanP</td>
+                <td>54.0</td>
+                <td>81.7</td>
+                <td>88.9</td>
+                <td>1.0</td>
+                <td>8.8</td>
+                <td>55.8</td>
+                <td>82.5</td>
+                <td>89.4</td>
+                <td>1.0</td>
+                <td>7.9</td>
+            </tr>
+            <tr>
+                <td>CLIP4Clip-seqLSTM</td>
+                <td>53.9</td>
+                <td>81.7</td>
+                <td>88.7</td>
+                <td>1.0</td>
+                <td>8.7</td>
+                <td>55.7</td>
+                <td>82.4</td>
+                <td>89.4</td>
+                <td>1.0</td>
+                <td>7.8</td>
+            </tr>
+            <tr>
+                <td>CLIP4Clip-seqTransf</td>
+                <td>55.4</td>
+                <td>82.6</td>
+                <td>89.4</td>
+                <td>1.0</td>
+                <td>7.9</td>
+                <td>55.7</td>
+                <td>82.9</td>
+                <td>89.7</td>
+                <td>1.0</td>
+                <td>7.6</td>
+            </tr>
+            <tr>
+                <td>CLIP4Clip-tightTransf</td>
+                <td>46.3</td>
+                <td>75.6</td>
+                <td>84.7</td>
+                <td>2.0</td>
+                <td>15.3</td>
+                <td>46.9</td>
+                <td>76.2</td>
+                <td>85.2</td>
+                <td>2.0</td>
+                <td>16.3</td>
+            </tr>
+            <tr>
+                <td>X-CLIP (ViT-B/32)</td>
+                <td>52.9</td>
+                <td>79.9</td>
+                <td>88.1</td>
+                <td>1.0</td>
+                <td>9.0</td>
+                <td>52.9</td>
+                <td>80.2</td>
+                <td>87.9</td>
+                <td>1.0</td>
+                <td>9.4</td>
+            </tr>
+            <tr>
+                <td>X-CLIP (ViT-B/16)</td>
+                <td>55.8</td>
+                <td>82.2</td>
+                <td>89.6</td>
+                <td>1.0</td>
+                <td>8.0</td>
+                <td>56.2</td>
+                <td>82.1</td>
+                <td>89.4</td>
+                <td>1.0</td>
+                <td>8.1</td>
+            </tr>
+            <tr>
+                <td>GRAM</td>
+                <td>57.3</td>
+                <td>82.0</td>
+                <td>88.7</td>
+                <td>1.0</td>
+                <td>130.5</td>
+                <td>56.5</td>
+                <td>81.6</td>
+                <td>88.3</td>
+                <td>1.0</td>
+                <td>137.9</td>
+            </tr>
+        </tbody>
+    </table>
+    <p> These are some retrieved examples of GRAM on SVTA. We visualize top 3 retrieved videos (green: correct; orange: incorrect).
+        We show the ranking list of on our SVTA dataset. We could observe that our dataset is
+        still challenging to prevailing cross-modality models. 
+    </p>
+    <img class="summary-img" src="./files/retrival_00.png" style="width:90%;"> <br>
+  </div>
+
+  <div class="content" id="bibtex"> 
     <p style="text-align:left; font-size: 2em; font-weight: bold" class="serif">BibTeX</p>
     <code> @article{yang2025towards,<br>
     &nbsp;&nbsp;title={Towards Scalable Video Anomaly Retrieval: A Synthetic Video-Text Benchmark},<br>

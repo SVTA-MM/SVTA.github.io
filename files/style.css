@@ -159,6 +159,32 @@ p code {
   margin-left: auto;
   margin-right: auto;
 }
+.charts-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start; /* 确保顶部对齐 */
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.chart-wrapper {
+  text-align: center; /* 让图片和文字都居中 */
+  width: 30%; /* 每个图表容器宽度，可根据需要调整 */
+  word-break: break-word; /* 允许长单词/文本换行 */
+  overflow-wrap: break-word; /* 确保过长文字自动换行 */
+}
+
+.chart-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.chart-caption {
+  margin-top: 8px;
+  font-size: 14px;
+  text-align: center; /* 确保文字在容器内居中 */
+}
 .video-iframe {
   width: 1000;
   height: 800;
@@ -218,3 +244,47 @@ p code {
   padding-right: 1ch;
   font-size: 16px;
 }
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: auto;
+}
+
+.comparison-table th,
+.comparison-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+/* 隐藏 T2V 和 V2T 内部的边框 */
+    .no-border-right {
+      border-right: none;
+    }
+
+    .no-border-left {
+      border-left: none;
+    }
+
+    /* 主表头背景色（可选美化） */
+    .comparison-table thead tr:first-child th {
+      background-color: #f2f2f2;
+    }
+
+    /* 去掉第二行中 T2V 和 V2T 分组内部的竖线 */
+    .t2v-group th:not(:last-child),
+    .v2t-group th:not(:last-child) {
+      border-right: none;
+    }
+
+    .t2v-group th:last-child,
+    .v2t-group th:last-child {
+      border-left: none;
+    }
+
+    /* 鼠标悬停整行变色 */
+    .comparison-table tbody tr:hover {
+      background-color: #e6f7ff; /* 悬停颜色（可自定义） */
+      transition: background-color 0.3s ease;
+    }
